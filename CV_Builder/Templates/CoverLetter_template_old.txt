@@ -1,0 +1,47 @@
+\documentclass[11pt,a4paper]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+
+% Adjust the page margins
+\geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+
+\begin{document}
+
+% Your personal contact information
+\begin{letter}{Hiring Manager's Name \\ Company Name \\ Company Address \\ City, Zip Code}
+
+% Your Name and Contact Information
+\address{Your Name \\ Your Address \\ City, Zip Code \\ Phone Number \\ Email \\ LinkedIn Profile}
+
+% Date
+\opening{\today}
+
+% Salutation
+\opening{Dear [Hiring Manager's Name],}
+
+% Introduction
+Start with a strong opening sentence that grabs attention. Introduce yourself and state the position you are applying for. Mention any mutual contact or unique reason for your interest in the company.
+
+% Body Paragraphs
+
+Explain why you are interested in this role and the company. Show that you've done your research and understand what the company does.
+
+
+Highlight relevant experiences, skills, and achievements. Use specific examples to demonstrate how your background makes you a great fit for the job. Include metrics or statistics if available.
+
+% Closing Paragraph
+
+Reiterate your enthusiasm for the role. Mention how you could contribute to the company's goals. State your eagerness to discuss your application further.
+
+% Formal Closing
+\closing{Sincerely,}
+
+% Your full name (after the closing)
+\signature{Your Full Name}
+
+% Postscript (optional)
+\ps{P.S.:} Include an important detail or personal touch here.
+
+\end{letter}
+\end{document}
+

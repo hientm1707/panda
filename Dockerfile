@@ -1,6 +1,8 @@
 FROM python:3.10
 
 ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+
 WORKDIR /build
 
 # Create venv, add it to path and install requirements
@@ -12,7 +14,8 @@ RUN pip install -r requirements.txt
 
 # Install uvicorn server
 RUN pip install uvicorn[standard]
-RUN apt-get update && apt-get install -y texlive-latex-extra
+RUN apt-get update && apt-get install -y -y texlive-basic
+
 # Copy the rest of app
 COPY app app
 COPY CV_Builder CV_Builder
@@ -29,5 +32,5 @@ RUN addgroup --gid 1001 --system uvicorn && \
 # Run init.sh script then start uvicorn
 RUN chown -R uvicorn:uvicorn /build
 CMD bash init.sh && \
-    runuser -u uvicorn -- /venv/bin/uvicorn app.main:app --app-dir /build --host 0.0.0.0 --port 8000 --workers 2 --loop uvloop
+    runuser -u uvicorn -- /venv/bin/uvicorn app.main:app --app-dir /build --host 0.0.0.0 --port 8000 --workers 4 --loop uvloop
 EXPOSE 8000

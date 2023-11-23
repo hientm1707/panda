@@ -19,8 +19,8 @@ def do_generate_cv_and_cl(old_cv, job_description:str):
     CoverLetterInstr = FileIO.read_file(CoverLetterInstr_path)
 
     # Build CV and cover letter
+    task_id = str(uuid.uuid4())
     if all([old_cv, cv_template, CoverLetter_template, CoverLetterInstr,job_description]):
-        task_id = str(uuid.uuid4())
         cv_build_success = False
         for i in range(0,max_try):
             logger.info("Building CV...")

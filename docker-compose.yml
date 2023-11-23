@@ -30,6 +30,16 @@ services:
       - 8000:8000
     depends_on:
       - postgres
-      
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+    ports:
+      - 1337:80
+    depends_on:
+      - web
+
 volumes:
   postgres_data:
+  static_volume:

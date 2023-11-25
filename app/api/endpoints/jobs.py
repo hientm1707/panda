@@ -14,8 +14,6 @@ router = APIRouter()
 
 OUTPUT_FILE_PATH = '.'
 
-
-
 @router.get("/", response_model=dict)
 async def hello():
     return dict(msg='Hello')

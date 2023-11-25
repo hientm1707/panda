@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Install Docker
+apt-get update
+apt-get install -y docker.io
+
+# Grant full permissions for Docker
+usermod -aG docker ubuntu
+
+
+#Generate ssh key
+ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -q -N ""
+
+
+# Grant permission to execute /home/ubuntu/panda/nginx/user_data.sh
+#chmod +x /home/ubuntu/panda/nginx/user_data.sh
+
+# Execute /home/ubuntu/panda/nginx/user_data.sh
+#/home/ubuntu/panda/nginx/user_data.sh

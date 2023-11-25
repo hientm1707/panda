@@ -6,7 +6,7 @@ from app.schemas.responses import GenerateCVResponse, JobDoc
 from fastapi import APIRouter, HTTPException, UploadFile, File, Body
 from fastapi.responses import FileResponse
 from fastapi.exceptions import RequestValidationError
-from CV_Builder.CVBuilder import do_generate_cv_and_cl
+from app.CV_Builder.CVBuilder import do_generate_cv_and_cl
 logger = logging.getLogger(__name__)
 
 

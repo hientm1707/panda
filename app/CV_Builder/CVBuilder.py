@@ -7,9 +7,9 @@ logger = logging.getLogger(__name__)
 def do_generate_cv_and_cl(old_cv, job_description:str):
     # constant  
     max_try = 5
-    CV_template_path = 'Templates/CV_template.txt'
-    CoverLetter_template_path = 'Templates/CoverLetter_template.txt'
-    CoverLetterInstr_path = 'Templates/CoverLetterInstruct.txt'
+    CV_template_path = 'app/CVBuilder/Templates/CV_template.txt'
+    CoverLetter_template_path = 'app/CVBuilder/Templates/CoverLetter_template.txt'
+    CoverLetterInstr_path = 'app/CVBuilder/Templates/CoverLetterInstruct.txt'
     # Read files
     # old_cv = ' '.join(format(ord(x), 'b') for x in old_cv_str)
     old_cv = FileIO.read_old_cv_binary(old_cv)
@@ -32,7 +32,7 @@ def do_generate_cv_and_cl(old_cv, job_description:str):
                 break
             logger.warning("identified an error, rebuilding CV...")
         if cv_build_success:
-            FileIO.generate_pdf(new_cv_content,f'CV_Builder/Output/newCV-{task_id}')
+            FileIO.generate_pdf(new_cv_content,f'app/CV_Builder/Output/newCV-{task_id}')
         else:
             logger.error("problem in building a valid CV...")
             return None

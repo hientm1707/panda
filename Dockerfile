@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 
 # Install uvicorn server
 RUN pip install uvicorn[standard]
-RUN apt-get update && apt-get install -y -y texlive-basic
+RUN apt-get update && apt-get install -y texlive-base
 
 # Copy the rest of app
 COPY app app

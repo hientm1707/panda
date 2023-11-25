@@ -34,12 +34,12 @@ services:
       - 8080:80
     depends_on:
       - web
-    command:
-      - sh
-      - -c
-      - |
-        chmod 777 /var/www/html/index.nginx-debian.html
-        echo "Hello World" > /var/www/html/index.nginx-debian.html
+#    command:
+#      - sh
+#      - -c
+#      - |
+#        chmod 777 /var/www/html/index.nginx-debian.html
+#        echo "Hello World" > /var/www/html/index.nginx-debian.html
 
 volumes:
   postgres_data:

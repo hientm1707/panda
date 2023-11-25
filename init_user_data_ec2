@@ -3,6 +3,7 @@
 # Install Docker
 apt-get update
 apt-get install -y docker.io
+apt-install docker-compose
 
 # Grant full permissions for Docker
 usermod -aG docker ubuntu

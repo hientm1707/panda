@@ -43,3 +43,6 @@ services:
 #      - |
 #        chmod 777 /var/www/html/index.nginx-debian.html
 #        echo "Hello World" > /var/www/html/
+
+volumes:
+  postgres_data:

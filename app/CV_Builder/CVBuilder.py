@@ -7,9 +7,9 @@ logger = logging.getLogger(__name__)
 def do_generate_cv_and_cl(old_cv, job_description:str):
     # constant  
     max_try = 5
-    CV_template_path = 'CV_Builder/Templates/CV_template.txt'
-    CoverLetter_template_path = 'CV_Builder/Templates/CoverLetter_template.txt'
-    CoverLetterInstr_path = 'CV_Builder/Templates/CoverLetterInstruct.txt'
+    CV_template_path = 'Templates/CV_template.txt'
+    CoverLetter_template_path = 'Templates/CoverLetter_template.txt'
+    CoverLetterInstr_path = 'Templates/CoverLetterInstruct.txt'
     # Read files
     # old_cv = ' '.join(format(ord(x), 'b') for x in old_cv_str)
     old_cv = FileIO.read_old_cv_binary(old_cv)

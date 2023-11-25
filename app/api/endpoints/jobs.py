@@ -19,7 +19,7 @@ async def hello():
     return dict(msg='Hello')
 
 @router.post("/generate-cv", response_model=GenerateCVResponse)
-async def generate_cv_and_cl(jds: Annotated[str, Body()], cv: UploadFile = File(...) ):
+def generate_cv_and_cl(jds: Annotated[str, Body()], cv: UploadFile = File(...) ):
     if cv.content_type != 'application/pdf':
         raise RequestValidationError('Not a valid file type')
     try:

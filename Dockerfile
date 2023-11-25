@@ -18,7 +18,6 @@ RUN apt-get update && apt-get install -y texlive-base
 
 # Copy the rest of app
 COPY app app
-COPY CV_Builder CV_Builder
 COPY alembic alembic
 COPY alembic.ini .
 COPY pyproject.toml .

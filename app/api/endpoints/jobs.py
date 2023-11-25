@@ -33,7 +33,10 @@ def generate_cv_and_cl(jds: Annotated[str, Body()], cv: UploadFile = File(...) )
         jd = job[1]
         try:
             task_id = do_generate_cv_and_cl(cv.file, jd)
-        except openai.error.RateLimitError as e:
+        except openai.APIConnectionError as e:
+            logger.error(f'OpenAI Server could not be reached!')
+            raise HTTPException(status_code=500, detail=f"OpenAI Server could not be reached!")
+        except openai.RateLimitError as e:
             logger.error(f"Rate limit reached or out of quota: {str(e)}")
             raise HTTPException(status_code=429, detail=f"Rate limit reached or out of quota!")
         except Exception as e:

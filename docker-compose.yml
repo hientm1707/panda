@@ -1,10 +1,5 @@
 version: "3.7"
 
-# For local development, only database is running
-#
-# docker-compose up -d
-# uvicorn app.main:app --reload
-#
 services:
   postgres:
     restart: unless-stopped
@@ -36,7 +31,7 @@ services:
     volumes:
       - static_volume:/home/app/web/staticfiles
     ports:
-      - 1337:80
+      - 8080:80
     depends_on:
       - web
 

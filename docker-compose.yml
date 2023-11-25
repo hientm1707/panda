@@ -25,13 +25,16 @@ services:
       - 8000:8000
     depends_on:
       - postgres
-
+      -
   nginx:
-    build: ./nginx
+    image: nginx:1.25
     volumes:
-      - static_volume:/home/app/web/staticfiles
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
       - 80:80
+    links:
+      - web:web
     depends_on:
       - web
 #    command:
@@ -39,8 +42,4 @@ services:
 #      - -c
 #      - |
 #        chmod 777 /var/www/html/index.nginx-debian.html
-#        echo "Hello World" > /var/www/html/index.nginx-debian.html
-
-volumes:
-  postgres_data:
-  static_volume:
+#        echo "Hello World" > /var/www/html/

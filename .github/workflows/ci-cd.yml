@@ -17,11 +17,3 @@ jobs:
     - name: Rebuild and compose up
       run: docker-compose up --build
   
-      
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Compose u
-
-  

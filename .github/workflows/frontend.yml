@@ -65,8 +65,7 @@ jobs:
             docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }} && \
             docker ps -aqf 'name=panda-fe' | xargs -r docker stop && \
             docker pull minhhien1772000/panda-fe && \
-            docker run --rm --name panda-fe -d minhhien1772000/panda-fe -p 80:80 && \
-            exit"      
+            docker run --rm -dp 80:80 minhhien1772000/panda-fe:latest"      
       - name: Cleanup
         run: rm -rf ~/.ssh
           

@@ -1,48 +1,16 @@
 version: "3.7"
 
 services:
-  postgres:
-    restart: unless-stopped
-    image: postgres:latest
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=${DEFAULT_DATABASE_DB}
-      - POSTGRES_USER=${DEFAULT_DATABASE_USER}
-      - PGUSER=${DEFAULT_DATABASE_USER}
-      - POSTGRES_PASSWORD=${DEFAULT_DATABASE_PASSWORD}
-      - POSTGRES_HOST_AUTH_METHOD=md5
-    env_file:
-      - .env
-    ports:
-      - "${DEFAULT_DATABASE_PORT}:5432"
-  web:
-    build: .
-    command: python3 -m uvicorn app.main:app --host 0.0.0.0 --reload --log-config=log_conf.yaml
-    volumes:
-      - .:/app
+  app:
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile.app
     ports:
       - 8000:8000
-    depends_on:
-      - postgres
-
-  nginx:
-    image: nginx:1.25
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    ports:
+  web:
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile.web
+    ports: 
       - 80:80
-    links:
-      - web:web
-    depends_on:
-      - web
-#    command:
-#      - sh
-#      - -c
-#      - |
-#        chmod 777 /var/www/html/index.nginx-debian.html
-#        echo "Hello World" > /var/www/html/
-
-volumes:
-  postgres_data:
+    restart: always

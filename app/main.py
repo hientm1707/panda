@@ -13,7 +13,7 @@ app = FastAPI(
     description=config.settings.DESCRIPTION,
     openapi_url="/openapi.json",
     docs_url="/",
-    root_path="/api/"
+    root_path="/"
 )
 app.include_router(api_router)
 

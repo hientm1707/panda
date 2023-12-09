@@ -1,0 +1,22 @@
+# Use an official Node.js runtime as a parent image
+FROM node:18-alpine as build
+WORKDIR /src
+
+COPY ./frontend/web/package*.json .
+
+# Install dependencies
+RUN npm install --loglevel verbose
+RUN npm install -g @angular/cli
+# Copy the rest of the app's source code to the container
+COPY ./frontend/web/ /src/
+
+# Build the Angular app
+RUN npm run build
+
+FROM nginx:1.25
+
+COPY --from=build /src/dist/web/browser /usr/share/nginx/html
+
+EXPOSE 80 443
+
+# CMD ["ng", "serve"]

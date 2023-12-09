@@ -64,7 +64,7 @@ jobs:
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "\
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }} && \
           docker ps -aqf 'name=panda-fe' | xargs -r docker stop && \
-          docker pull panda-fe:latest && \
+          docker pull minhhien1772000/panda-fe:latest && \
           docker run --rm --name panda-fe -d panda-fe:latest && \
           exit"       
 

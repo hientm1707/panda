@@ -41,7 +41,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./Dockerfile
+          file: docker/Dockerfile.app
           push: true
           tags: |
             minhhien1772000/panda-be:latest

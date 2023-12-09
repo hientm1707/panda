@@ -3,7 +3,7 @@ name: Back-End CI/CD
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'app/**'
   workflow_dispatch:
@@ -65,8 +65,7 @@ jobs:
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }} && \
           docker ps -aqf 'name=panda-be' | xargs -r docker stop && \
           docker pull minhhien1772000/panda-be && \
-          docker run --rm --name panda-be -d minhhien1772000/panda-be && \
-          exit"       
+          docker run --rm --name panda-be -dp 8000:8000 minhhien1772000/panda-be &&"       
 
       - name: Cleanup
         run: rm -rf ~/.ssh

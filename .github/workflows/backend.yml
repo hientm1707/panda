@@ -60,7 +60,7 @@ jobs:
             ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
 
       - name: Connect and Pull
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "docker stop panda-be && docker pull panda-be:latest && docker run --rm --name panda-be -d panda-be:latest && exit"
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "docker ps -aqf "name=panda-be" | xargs -r docker stop && docker pull panda-be:latest && docker run --rm --name panda-be -d panda-be:latest && exit"
       
       - name: Cleanup
         run: rm -rf ~/.ssh

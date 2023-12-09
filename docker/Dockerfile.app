@@ -27,7 +27,7 @@ COPY .env .
 COPY log_conf.yaml .
 # Create new user to run app process as unprivilaged user
 RUN addgroup --gid 1001 --system uvicorn && \
-    adduser --gid 1001 --shell /bin/false --disabled-password --uid 1001 uvicorn
+    adduser --gid 1001 --shell /bin/false --disabled-password --uid 1001 uvicorn`
 
 # Run init.sh script then start uvicorn
 RUN chown -R uvicorn:uvicorn /app

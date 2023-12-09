@@ -7,6 +7,7 @@ services:
       dockerfile: docker/Dockerfile.app
     ports:
       - 8000:8000
+    restart: always
   web:
     build: 
       context: .

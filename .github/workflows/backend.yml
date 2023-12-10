@@ -24,6 +24,7 @@ jobs:
     steps:
       - name: Set up environment
         run: |
+          touch .env
           echo "${{ secrets.ENV_FILE_BE }}" > .env
       - name: Checkout
         uses: actions/checkout@v2

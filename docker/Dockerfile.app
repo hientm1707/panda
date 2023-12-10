@@ -26,11 +26,11 @@ COPY init.sh .
 COPY .env .
 COPY log_conf.yaml .
 # Create new user to run app process as unprivilaged user
-RUN addgroup --gid 1001 --system uvicorn && \
-    adduser --gid 1001 --shell /bin/false --disabled-password --uid 1001 uvicorn`
+# RUN addgroup --gid 1001 --system uvicorn && \
+#     adduser --gid 1001 --shell /bin/false --disabled-password --uid 1001 uvicorn`
 
-# Run init.sh script then start uvicorn
-RUN chown -R uvicorn:uvicorn /app
+# # Run init.sh script then start uvicorn
+# RUN chown -R uvicorn:uvicorn /app
 CMD bash init.sh && \
     runuser -u uvicorn -- /venv/bin/uvicorn app.main:app --app-dir /app --host 0.0.0.0 --port 8000 --workers 4 --loop uvloop
 EXPOSE 8000

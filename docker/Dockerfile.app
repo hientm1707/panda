@@ -32,5 +32,5 @@ COPY log_conf.yaml .
 # # Run init.sh script then start uvicorn
 # RUN chown -R uvicorn:uvicorn /app
 CMD bash init.sh && \
-    runuser -u uvicorn -- /venv/bin/uvicorn app.main:app --app-dir /app --host 0.0.0.0 --port 8000 --workers 4 --loop uvloop
+    /venv/bin/uvicorn app.main:app --app-dir /app --host 0.0.0.0 --port 8000 --workers 4 --loop uvloop
 EXPOSE 8000

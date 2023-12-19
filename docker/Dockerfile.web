@@ -20,7 +20,7 @@ COPY --from=build /src/dist/web/browser /usr/share/nginx/html
 RUN apk update && \
     apk add --no-cache certbot
 
-RUN letsencrypt certonly -a webroot \
+RUN certbot certonly -a webroot \
   -w /src/dist/web/browser \
   -d hientran.tech -d www.hientran.tech
 

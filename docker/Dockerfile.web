@@ -17,6 +17,18 @@ FROM nginx:1.25
 
 COPY --from=build /src/dist/web/browser /usr/share/nginx/html
 
+RUN mkdir /var/www/html && \
+    touch /var/www/html/index.html && \
+    mkdir /var/www/html/.well-known
+RUN add-apt-repository ppa:certbot/certbot && \
+    apt update && \
+    apt install certbot
+RUN letsencrypt certonly -a webroot \
+  -w /src/dist/web/browser \
+  -d hientran.tech -d www.hientran.tech
+
+RUN echo "ssl_certificate /etc/letsencrypt/live/toidicafe.vn/fullchain.pem; ssl_certificate_key /etc/letsencrypt/live/toidicafe.vn/privkey.pem;" > /etc/nginx/snippets/ssl-hientran.tech.conf
+
 EXPOSE 80 443
 
 # CMD ["ng", "serve"]

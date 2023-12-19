@@ -6,3 +6,6 @@ class JobDoc(BaseModel):
 
 class GenerateCVResponse(BaseResponse):
     docs: list
+
+class UserResponse(BaseResponse):
+    users: list(User)

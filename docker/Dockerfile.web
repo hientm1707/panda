@@ -17,7 +17,7 @@ FROM nginx:1.25
 
 COPY --from=build /src/dist/web/browser /usr/share/nginx/html
 
-RUN mkdir /src/dist/web/browser/.well-known
+RUN mkdir /usr/share/nginx/html/.well-known
 RUN add-apt-repository ppa:certbot/certbot && \
     apt update && \
     apt install certbot

@@ -13,7 +13,7 @@ COPY ./frontend/web/ /src/
 # Build the Angular app
 RUN npm run build
 
-FROM nginx:1.25.0:alpine
+FROM nginx:1.25.0-alpine
 
 COPY --from=build /src/dist/web/browser /usr/share/nginx/html
 

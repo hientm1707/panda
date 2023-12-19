@@ -16,12 +16,12 @@ RUN npm run build
 FROM nginx:1.25.0-alpine
 
 COPY --from=build /src/dist/web/browser /usr/share/nginx/html
-
+RUN touch /usr/share/nginx/html/.well_known
 RUN apk update && \
     apk add --no-cache certbot
 
 RUN certbot certonly -a webroot \
-  -w /src/dist/web/browser \
+  -w /usr/share/nginx/html \
   -d hientran.tech -d www.hientran.tech
 
 RUN echo "ssl_certificate /etc/letsencrypt/live/toidicafe.vn/fullchain.pem; ssl_certificate_key /etc/letsencrypt/live/toidicafe.vn/privkey.pem;" > /etc/nginx/snippets/ssl-hientran.tech.conf

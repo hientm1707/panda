@@ -17,9 +17,9 @@ FROM nginx:1.25
 
 COPY --from=build /src/dist/web/browser /usr/share/nginx/html
 
-RUN add-apt-repository ppa:certbot/certbot && \
-    apt update && \
-    apt install certbot
+RUN apk update && \
+    apk add --no-cache certbot
+
 RUN letsencrypt certonly -a webroot \
   -w /src/dist/web/browser \
   -d hientran.tech -d www.hientran.tech

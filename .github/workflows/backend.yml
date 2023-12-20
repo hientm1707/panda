@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - 'app/**'
+      - 'docker/Dockerfile.app'
   workflow_dispatch:
     inputs:
       logLevel:

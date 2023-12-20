@@ -20,10 +20,10 @@ RUN touch /usr/share/nginx/html/.well_known
 RUN apk update && \
     apk add --no-cache certbot
 
-RUN certbot certonly -a webroot \
+RUN yes | certbot certonly -a webroot \
   -w /usr/share/nginx/html \
   -d hientran.tech -d www.hientran.tech \
-  --email minhhien1772000@gmail.com  -y \
+  --email minhhien1772000@gmail.com
 
 RUN echo "ssl_certificate /etc/letsencrypt/live/toidicafe.vn/fullchain.pem; ssl_certificate_key /etc/letsencrypt/live/toidicafe.vn/privkey.pem;" > /etc/nginx/snippets/ssl-hientran.tech.conf
 

@@ -25,7 +25,7 @@ RUN yes | certbot certonly -a webroot \
   -d hientran.tech \
   --email minhhien1772000@gmail.com
 
-RUN echo "ssl_certificate /etc/letsencrypt/live/toidicafe.vn/fullchain.pem; ssl_certificate_key /etc/letsencrypt/live/toidicafe.vn/privkey.pem;" > /etc/nginx/snippets/ssl-hientran.tech.conf
+RUN echo "ssl_certificate /etc/letsencrypt/live/hientran.tech/fullchain.pem; ssl_certificate_key /etc/letsencrypt/live/hientran.tech/privkey.pem;" > /etc/nginx/snippets/ssl-hientran.tech.conf
 
 EXPOSE 80 443
 

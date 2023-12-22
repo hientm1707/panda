@@ -20,8 +20,8 @@ RUN touch /usr/share/nginx/html/.well_known
 RUN apk update && \
     apk add --no-cache certbot
 
-RUN yes | certbot certonly -a webroot \
-  -w /usr/share/nginx/html \
+RUN yes | certbot certonly \
+  --webroot -w /usr/share/nginx/html \
   -d hientran.tech \
   --email minhhien1772000@gmail.com
 

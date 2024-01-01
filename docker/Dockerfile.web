@@ -17,7 +17,7 @@ FROM nginx:1.25.0-alpine
 
 COPY --from=build /src/dist/web/ /usr/share/nginx/html
 
-RUN npm install typed.js --save
+# RUN npm install typed.js --save
 
 # RUN touch /usr/share/nginx/html/.well_known
 # RUN apk update && \

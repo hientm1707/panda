@@ -1,0 +1,106 @@
+======= Intro Section =======
+<div id="home" class="intro route bg-image"
+    style="background-image: url(assets/img/intro-bg.jpg)">
+    <div class="overlay-itro"></div>
+    <div class="intro-content display-table">
+        <div class="table-cell">
+            <div class="container">
+                <h1 class="intro-title mb-4">I am Hien Tran</h1>
+                <p class="intro-subtitle"><span
+                        class="text-slider-items">Software Engineer/ Backend
+                        Engineer</span>
+                    <strong class="text-slider"></strong></p>
+            </div>
+        </div>
+    </div>
+</div><!-- End Intro Section -->
+
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about-mf sect-pt4 route">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box-shadow-full">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div *ngFor="let person of _service.profile"
+                                    class="row">
+                                    <div class="col-sm-6 col-md-5">
+                                        <div class="about-img">
+                                            <img [src]="person.url"
+                                                class="img-fluid rounded b-shadow-a"
+                                                alt>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-7">
+                                        <div class="about-info">
+                                            <p><span class="title-s">Name:
+                                                </span> <span>{{ person.name
+                                                    }}</span></p>
+                                            <p><span class="title-s">Profile:
+                                                </span> <span>{{
+                                                    person.profession }}</span>
+                                            </p>
+                                            <p><span class="title-s">Email:
+                                                </span> <span>{{ person.email
+                                                    }}</span></p>
+                                            <p><span class="title-s">Phone:
+                                                </span> <span>{{ person.phone
+                                                    }}</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-mf">
+                                    <p class="title-s">Skills</p>
+                                    <a href="https://imgur.com/vCPGr8N"><img 
+                                        src="https://i.imgur.com/vCPGr8N.png" 
+                                        title="source: imgur.com"
+                                        width="90%"
+                                        height="90%"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-me pt-4 pt-md-0">
+                                    <div class="title-box-2">
+                                        <h5 class="title-left">
+                                            About me
+                                        </h5>
+                                    </div>
+                                    <p class="lead">
+                                        I'm a Software Engineer with 2+ year of experience and a huge passion
+                                        for back-end development, especially large-scale
+                                        systems, aiming to become a Software
+                                        Architect in the future. With the
+                                        possession of strong foundations in
+                                        Computer Science, a growth mindset, and
+                                        proficiency in spoken as well as written
+                                        English, I believe I will largely boost
+                                        businesses' efficiency in every
+                                        respects.
+                                    </p>
+                                    <p class="lead">
+                                        I constantly work on my self-taught
+                                        learning, with the help of the different
+                                        technological tools that currently
+                                        interact and intervene in the
+                                        transformation and growth of the digital
+                                        world.
+                                    </p>
+                                    <p class="lead">
+                                        My main focus at the moment is Back end Engineering and DevOps.
+                                        As the tech industry is now boosted by AI dramatically, I'm planning and willing to learn
+                                        take on any challenges and projects that are Data/ AI - related. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
